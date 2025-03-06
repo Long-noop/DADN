@@ -1,16 +1,24 @@
 from fastapi import FastAPI
-from .database import get_db_connection
-from .mqtt_handler import client  # Import để chạy MQTT
 import json
+from firebase_admin import db
+from .firebase_config import mqtt_client 
 
 app = FastAPI()
 
+@app.get("/")
+def get_data():
+    try:
+        ref = db.reference('sensorData')
+        data = ref.get()
+        return data
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 @app.get("/api/sensor")
 def get_sensor_data():
-    conn = get_db_connection()
-    cursor = conn.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM sensor_data ORDER BY created_at DESC LIMIT 10")
-    results = cursor.fetchall()
-    cursor.close()
-    conn.close()
-    return {"data": results}
+    try:
+        ref = db.reference('sensorData')
+        data = ref.get()
+        return data
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

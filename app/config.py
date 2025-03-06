@@ -6,10 +6,6 @@ class Settings(BaseSettings):
     AIO_USERNAME: str
     AIO_KEY: str
     AIO_FEED_ID: str
-    DB_HOST: str
-    DB_USER: str
-    DB_PASSWORD: str
-    DB_NAME: str
 
     class Config:
         env_file = ".env"
