@@ -1,3 +1,5 @@
 .env
 start.sh
 venv
+.gitignore
+dadn-e25c3-firebase-adminsdk-fbsvc-87fe5593ab.json
