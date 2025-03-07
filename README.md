@@ -28,7 +28,7 @@ This project is an **IoT API server** built using **FastAPI** in Python. It rece
 ---
 
 ## **Project Structure**
-
+```py
 DADN/
 ├── app/
 │   ├── main.py               # FastAPI server and endpoints
@@ -39,7 +39,7 @@ DADN/
 ├── requirements.txt          # List of dependencies
 └── README.md                 # Project documentation
 
-
+```
 
 ---
 
