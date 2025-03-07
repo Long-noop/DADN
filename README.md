@@ -47,8 +47,8 @@ DADN/
 
 ### **1. Clone the Repository**
 ```sh
-git clone https://github.com/your-username/iot-api.git
-cd iot-api
+https://github.com/Long-noop/DADN.git
+cd app
 ```
 
 ### **2. Set Up Virtual Environment**
