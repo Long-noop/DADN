@@ -14,7 +14,7 @@ This project is an **IoT API server** built using **FastAPI** in Python. It rece
 - **Real-time data ingestion**: Receive sensor data via MQTT.
 - **Data storage**: Store sensor data in Firebase Realtime Database.
 - **RESTful API**: Retrieve sensor data via FastAPI endpoints.
-- **Environment management**: Use `.env` for configuration and `venv` for dependency isolation.
+- **Environment management**: Use `.env` for security configuration and `venv` for dependency isolation.
 
 ---
 
@@ -24,9 +24,63 @@ This project is an **IoT API server** built using **FastAPI** in Python. It rece
 - **Firebase Realtime Database**: A cloud-hosted NoSQL database for real-time data storage.
 - **MQTT**: A lightweight messaging protocol for IoT devices.
 - **Python**: The primary programming language.
-- **venv**: Python's built-in virtual environment manager.
-- **.env**: A file to manage environment variables.
 
 ---
 
 ## **Project Structure**
+
+DADN/
+├── app/
+│   ├── main.py               # FastAPI server and endpoints
+│   ├── firebase_config.py    # Firebase and MQTT configuration
+│   ├── config.py             # Application configuration
+│   ├── models.py             # Data models (Pydantic)
+├── .env                      # Environment variables
+├── requirements.txt          # List of dependencies
+└── README.md                 # Project documentation
+
+
+
+---
+
+## **Installation**
+
+### **1. Clone the Repository**
+```sh
+git clone https://github.com/your-username/iot-api.git
+cd iot-api
+```
+
+### **2. Set Up Virtual Environment**
+
+Create and activate a virtual environment:
+```sh
+python -m venv venv
+source venv/bin/activate  # On Linux/MacOS
+venv\Scripts\activate     # On Windows
+```
+
+### **3. Install Dependencies**
+
+Install the required packages:
+```sh
+pip install -r requirements.txt
+```
+
+### **4. Set Up Environment Variables**
+
+Create a .env file in the root directory and add the following variables:
+```sh
+MQTT_BROKER=io.adafruit.com
+MQTT_PORT=1883
+AIO_USERNAME=your_adafruit_username
+AIO_KEY=your_adafruit_key
+AIO_FEED_ID=your_feed_id
+```
+5. Run the Server
+
+Start the FastAPI server:
+```sh
+uvicorn main:app --reload
+```
+The server will be available at http://localhost:8000.
