@@ -7,3 +7,5 @@ pydantic-settings
 firebase_admin
 Adafruit_IO
 setuptools
+python-jose[cryptography]
+passlib[bcrypt]
