@@ -1,6 +1,6 @@
 import sys
 import firebase_admin
-from firebase_admin import credentials, db
+from firebase_admin import credentials, db, firestore
 from .config import settings
 import paho.mqtt.client as mqtt
 import json 
@@ -10,6 +10,9 @@ firebase_admin.initialize_app(cred, {
     'databaseURL': "https://dadn-e25c3-default-rtdb.firebaseio.com/"
 })
 
+dbrealtime  = db.reference('sensorData')
+dbfirestore = firestore.client()
+
 # Hàm callback khi nhận được message từ MQTT
 def on_message(client, userdata, message):
     try:
@@ -17,7 +20,7 @@ def on_message(client, userdata, message):
         # data = json.loads(payload)
         
         # Ghi dữ liệu lên Firebase Realtime Database
-        ref = db.reference('sensorData')
+        ref = dbrealtime
         ref.push().set({
             'value': payload,
             'timestamp': {".sv": "timestamp"}        
